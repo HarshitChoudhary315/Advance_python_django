@@ -6,17 +6,18 @@
 </head>
 <body>
 {% include 'header.html' %}
-<form>
+<form method="post">
+    {% csrf_token %}
     <div align="center">
         <h1>login</h1>
         <table>
             <tr>
                 <th>login Id</th>
-                <td><input type="text"></td>
+                <td><input type="text" name="loginId"></td>
             </tr>
             <tr>
                 <th>Password</th>
-                <td><input type="text"></td>
+                <td><input type="text" name="password"></td>
             </tr>
             <tr>
                 <th></th>
