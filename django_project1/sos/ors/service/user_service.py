@@ -1,4 +1,3 @@
-from django.contrib.auth import login
 from django.db import connection
 
 
