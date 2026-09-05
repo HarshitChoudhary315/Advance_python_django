@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from pyexpat.errors import messages
 
 from .service.user_service import UserService
 
@@ -25,6 +26,17 @@ def user_signup(request):
     return render(request,'registration.html')
 
 def user_sigin(request):
-    print(request.POST.get('loginId'))
-    print(request.POST.get('password'))
-    return render(request,'login.html')
+    message = ''
+    if request.method =="POST":
+        form = {}
+        form['login_id'] = request.POST.get('loginId')
+        form['password'] = request.POST.get('password')
+        service = UserService()
+        records = service.authenticate( form['login_id'],form['password'])
+
+        if len(records) > 0:
+            return render(request,'welcome.html',{'firstName': records[0].get('first_name')})
+        else:
+            message = 'login & password Invalid'
+
+    return render(request,'login.html',{'message':message})
