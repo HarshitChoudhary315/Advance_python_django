@@ -108,7 +108,7 @@ class Faculty(models.Model):
     class Meta:
         db_table = 'sos_faculty'
 
-class Student(models.Model):
+class Student(DropdownItem,models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     dob = models.DateField(max_length=20)
@@ -117,15 +117,24 @@ class Student(models.Model):
     college_id = models.IntegerField()
     college_name = models.CharField(max_length=50)
 
+    def get_key(self):
+        return self.id
+
+    def get_value(self):
+        return f"{self.first_name} {self.last_name}"
+
     class Meta:
         db_table = 'sos_student'
 
+
 class Marksheet(models.Model):
     roll_number = models.CharField(max_length=50)
-    name = models.CharField(max_length=50)
     physics = models.IntegerField()
     chemistry = models.IntegerField()
     maths = models.IntegerField()
+    student_id = models.IntegerField()
+    student_name = models.CharField(max_length=50)
 
     class Meta:
         db_table = 'sos_marksheet'
+

@@ -16,8 +16,8 @@
         <table>
             <tr>
                 <th>Name:</th>
-                <td><input type="text" name="name" placeholder="enter roll number here"
-                           value="{{ form.roll_number|default_if_none:'' }}"></td>
+                <td><input type="text" name="name" placeholder="enter name here"
+                           value="{{ form.name|default_if_none:'' }}"></td>
                 <td><input type="submit" name="operation" value="search"></td>
             </tr>
         </table>
@@ -27,7 +27,7 @@
         <tr>
             <th>S. No.</th>
             <th>roll_number</th>
-            <th>name</th>
+            <th> Student Name</th>
             <th>physics</th>
             <th>chemistry</th>
             <th>maths</th>
@@ -37,7 +37,7 @@
         <tr>
             <td align="center">{{ form.index|add:forloop.counter }}</td>
             <td align="center">{{ l.roll_number }}</td>
-            <td align="center">{{ l.name }}</td>
+            <td align="center">{{ l.student_name }}</td>
             <td align="center">{{ l.physics }}</td>
             <td align="center">{{ l.chemistry }}</td>
             <td align="center">{{ l.maths }}</td>

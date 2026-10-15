@@ -48,17 +48,16 @@ class FacultyCtl(BaseCtl):
 
     def request_to_form(self, request):
         self.form['id'] = int(request.POST.get('id', 0))
-        self.form['first_name'] = request.POST.get('first_name','')
-        self.form['last_name'] = request.POST.get('last_name','')
-        self.form['email'] = request.POST.get('email','')
-        self.form['password'] = request.POST.get('password','')
-        self.form['address'] = request.POST.get('address','')
-        self.form['gender'] = request.POST.get('gender','')
-        self.form['dob'] = request.POST.get('dob','')
+        self.form['first_name'] = request.POST.get('first_name', '')
+        self.form['last_name'] = request.POST.get('last_name', '')
+        self.form['email'] = request.POST.get('email', '')
+        self.form['password'] = request.POST.get('password', '')
+        self.form['address'] = request.POST.get('address', '')
+        self.form['gender'] = request.POST.get('gender', '')
+        self.form['dob'] = request.POST.get('dob', '')
         self.form['college_id'] = int(request.POST.get('collegeId', 0))
         self.form['subject_id'] = int(request.POST.get('subjectId', 0))
         self.form['course_id'] = int(request.POST.get('courseId', 0))
-
 
     def form_to_model(self, obj):
         obj.id = self.form['id']

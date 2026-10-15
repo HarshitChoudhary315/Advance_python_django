@@ -48,7 +48,7 @@ class MarksheetService:
 
         value = params.get("name", '')
         if DataValidator.is_not_null(value):
-            query = query.filter(name__istartswith=value.strip())
+            query = query.filter(student_name__istartswith=value.strip())
 
         if (page_size == 0):
             return query
