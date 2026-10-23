@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'header.html' %}
+<form method="POST">
+    {% csrf_token %}
+    <div align="center">
+        <table>
+            <h1>REGISTRATION</h1>
+        <tr>
+            <th>first name :</th>
+            <td><input type="text" name="firstName"></td>
+        </tr>
+            <tr>
+            <th>last name :</th>
+            <td><input type="text" name="lastName"></td>
+        </tr>
+            <tr>
+            <th>login Id :</th>
+            <td><input type="text" name="loginId"></td>
+        </tr>
+            <tr>
+            <th>password :</th>
+            <td><input type="text" name="password"></td>
+        </tr>
+            <tr>
+            <th>dob :</th>
+            <td><input type="text" name="dob"></td>
+        </tr>
+            <tr>
+            <th>address :</th>
+            <td><input type="text" name="address"></td>
+        </tr>
+            <tr>
+            <th></th>
+            <td><input type="submit" value="signup"></td>
+        </tr>
+        </table>
+    </div>
+</form>
+</body>
+</html>

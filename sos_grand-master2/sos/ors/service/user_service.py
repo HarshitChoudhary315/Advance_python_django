@@ -37,8 +37,8 @@ class UserService:
 
     def find_by_login(self, login_id):
         print('user service orm find_by_login()')
-        obj = User.objects.filter(login_id=login_id)
-        return obj
+        objs = User.objects.filter(login_id=login_id)
+        return objs
 
     def authenticate(self, login_id, password):
         print('user service orm authenticate()')
