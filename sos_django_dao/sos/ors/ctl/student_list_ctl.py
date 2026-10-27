@@ -7,7 +7,7 @@ from ..service.student_service import StudentService
 class StudentListCtl(BaseCtl):
 
     def request_to_form(self, request):
-        self.form['email'] = request.POST.get('email')
+        self.form['first_name'] = request.POST.get('first_name')
 
     def display(self, request,params = {}):
         student_list = self.get_service().search(self.form)

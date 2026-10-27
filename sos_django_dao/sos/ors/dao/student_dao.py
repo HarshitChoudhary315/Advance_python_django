@@ -12,12 +12,12 @@ class StudentDAO(BaseDAO):
         return Student
 
     def get_label(self):
-        return "email"
+        return "Student Name"
 
     def get_where_clause(self, query, params):
-        value = params.get("name","")
+        value = params.get("first_name", "")
 
         if DataValidator.is_not_null(value):
-            query = query.filter(email__isstartwith=value.strip())
+            query = query.filter(first_name__istartswith=value)
 
         return query

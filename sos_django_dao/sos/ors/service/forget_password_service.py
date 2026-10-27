@@ -1,17 +1,13 @@
-from django.db import connection
-
+from .base_service import BaseService
+from ..dao.user_dao import UserDAO
 from ..models import User
 
+class ForgetPasswordService(BaseService):
+    def get_dao(self):
+        return UserDAO()
 
-class ForgetPasswordService:
-
-    def find_by_login(self, login_id):
-        print('user service orm find_by_login()')
-        objs = User.objects.filter(login_id=login_id)
-        return objs
-
-    def forget_password(self, login_id):
-        objs = self.find_by_login(login_id)
+    def forget_password(self,login_id):
+        objs = self.get_dao().find_by_unique_key('login_id',login_id)
 
         if objs.exists():
             return objs.first()

@@ -73,25 +73,25 @@ class MarksheetCtl(BaseCtl):
         self.form['chemistry'] = obj.chemistry
         self.form['maths'] = obj.maths
 
-    def display(self, request, params = {}):
+    def display(self, request, params={}):
         return render(request, self.get_template(), {'form': self.form, "preload_data": self.preload(request)})
 
-    def submit(self, request,params = {}):
-            try:
-                marksheet = self.form_to_model(Marksheet())
-                self.get_service().save(marksheet)
-                if self.form['id'] > 0:
-                    self.form['message'] = 'marksheet update Successfully...!!!'
-                    self.form['error'] = False
-                else:
-                    self.form['message'] = 'marksheet saved successfully...!!!'
-                    self.form['error'] = False
+    def submit(self, request, params={}):
+        try:
+            marksheet = self.form_to_model(Marksheet())
+            self.get_service().save(marksheet)
+            if self.form['id'] > 0:
+                self.form['message'] = 'marksheet update Successfully...!!!'
+                self.form['error'] = False
+            else:
+                self.form['message'] = 'marksheet saved successfully...!!!'
+                self.form['error'] = False
 
-            except Exception as e:
-                self.form['message'] = str(e)
-                self.form['error'] = True
+        except Exception as e:
+            self.form['message'] = str(e)
+            self.form['error'] = True
 
-            return render(request, self.get_template(), {'form': self.form, "preload_data": self.preload(request)})
+        return render(request, self.get_template(), {'form': self.form, "preload_data": self.preload(request)})
 
     def get_service(self):
         return MarksheetService()

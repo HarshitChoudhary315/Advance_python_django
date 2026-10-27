@@ -18,7 +18,8 @@ class CollegeDAO(BaseDAO):
         value = params.get("name", "")
 
         if DataValidator.is_not_null(value):
-            query = query.filter(name__isstartwith=value.strip)
+            query = query.filter(name__istartswith=value)
+
 
         return query
 

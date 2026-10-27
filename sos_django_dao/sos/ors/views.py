@@ -9,7 +9,6 @@ from .ctl.user_ctl import UserCtl
 from .ctl.user_list_ctl import UserListCtl
 from .ctl.role_ctl import RoleCtl
 from .ctl.role_list_ctl import RoleListCtl
-from .ctl.test_ctl import TestCtl
 from .ctl.college_ctl import CollegeCtl
 from .ctl.college_list_ctl import CollegeListCtl
 from .ctl.course_ctl import CourseCtl

@@ -18,6 +18,5 @@ class RoleDAO(BaseDAO):
         value = params.get("name","")
 
         if DataValidator.is_not_null(value):
-            query = query.filter(name__istartswith=value())
-
+            query = query.filter(name__istartswith=value)
         return query

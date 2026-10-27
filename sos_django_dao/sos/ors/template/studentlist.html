@@ -15,9 +15,9 @@
     <div align="center">
         <table>
             <tr>
-                <th>Email:</th>
-                <td><input type="text" name="name" placeholder="enter email here"
-                           value="{{ form.email }}"></td>
+                <th>First Name:</th>
+                <td><input type="text" name="first_name" placeholder="enter student name here"
+                           value="{{ form.first_name|default_if_none:'' }}"></td>
                 <td><input type="submit" name="operation" value="search"></td>
             </tr>
         </table>

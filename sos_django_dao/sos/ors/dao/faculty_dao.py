@@ -15,9 +15,9 @@ class FacultyDAO(BaseDAO):
         return "email"
 
     def get_where_clause(self, query, params):
-        value = params.get("name","")
+        value = params.get("email","")
 
         if DataValidator.is_not_null(value):
-            query = query.filter(name__isstartwith=value.strip)
+            query = query.filter(email__istartswith=value)
 
         return query
